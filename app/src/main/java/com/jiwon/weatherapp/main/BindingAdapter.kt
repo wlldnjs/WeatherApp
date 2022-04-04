@@ -1,6 +1,5 @@
 package com.jiwon.weatherapp.main
 
-import android.util.Log
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -17,7 +16,6 @@ fun setWeatherItem(recyclerView: RecyclerView, isLoading: Boolean, item: List<We
 @BindingAdapter("loadImageUrl")
 fun loadImageUrl(imageView: ImageView, imageUrl: String?) {
     imageUrl?.let {
-        Log.d("wll image", imageUrl)
         Glide.with(imageView).load(imageUrl).into(imageView)
     }
 }
