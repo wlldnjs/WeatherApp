@@ -19,7 +19,6 @@
             android:id="@+id/text_title"
             android:layout_width="50dp"
             android:layout_height="100dp"
-            android:background="@drawable/shape_stroke_1dp_darkgray"
             android:gravity="center"
             android:text="@{item.title}"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -29,12 +28,18 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="seoul" />
 
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/darkgray"
+            app:layout_constraintLeft_toRightOf="@id/text_title"
+            app:layout_constraintRight_toLeftOf="@id/view_today" />
+
         <!-- 오늘 날씨 -->
         <View
             android:id="@+id/view_today"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@drawable/shape_stroke_1dp_darkgray"
             app:layout_constraintBottom_toBottomOf="@id/text_title"
             app:layout_constraintLeft_toRightOf="@id/text_title"
             app:layout_constraintRight_toLeftOf="@id/view_tomorrow"
@@ -55,9 +60,9 @@
             android:id="@+id/text_today_weather"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
             android:ellipsize="end"
-            android:layout_marginStart="5dp"
             android:text="@{item.consolidated_weather[0].weather_state_name}"
             app:layout_constraintLeft_toRightOf="@id/image_today_icon"
             app:layout_constraintRight_toRightOf="@id/view_today"
@@ -67,8 +72,8 @@
             android:id="@+id/text_today_temp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
             android:layout_marginStart="5dp"
+            android:layout_marginBottom="10dp"
             android:bufferType="spannable"
             android:textColor="@color/red"
             app:layout_constraintBottom_toBottomOf="@id/image_today_icon"
@@ -85,12 +90,18 @@
             app:layout_constraintBaseline_toBaselineOf="@id/text_today_temp"
             app:layout_constraintLeft_toRightOf="@id/text_today_temp" />
 
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/darkgray"
+            app:layout_constraintLeft_toRightOf="@id/view_today"
+            app:layout_constraintRight_toLeftOf="@id/view_tomorrow" />
+
         <!-- 내일 날씨 -->
         <View
             android:id="@+id/view_tomorrow"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@drawable/shape_stroke_1dp_darkgray"
             app:layout_constraintBottom_toBottomOf="@id/text_title"
             app:layout_constraintLeft_toRightOf="@id/view_today"
             app:layout_constraintRight_toRightOf="parent"
@@ -111,8 +122,8 @@
             android:id="@+id/text_tomorrow_weather"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
             android:text="@{item.consolidated_weather[1].weather_state_name}"
             app:layout_constraintLeft_toRightOf="@id/image_tomorrow_icon"
             app:layout_constraintRight_toRightOf="@id/view_tomorrow"
@@ -122,8 +133,8 @@
             android:id="@+id/text_tomorrow_temp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
             android:layout_marginStart="5dp"
+            android:layout_marginBottom="10dp"
             android:bufferType="spannable"
             android:textColor="@color/red"
             app:layout_constraintBottom_toBottomOf="@id/image_tomorrow_icon"

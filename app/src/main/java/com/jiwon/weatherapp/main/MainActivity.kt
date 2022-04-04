@@ -4,7 +4,10 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.RecyclerView
 import com.jiwon.weatherapp.R
+import com.jiwon.weatherapp.base.SimpleDividerItemDecoration
 import com.jiwon.weatherapp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -25,7 +28,10 @@ class MainActivity : AppCompatActivity() {
             swipeWeather.setOnRefreshListener {
                 mViewModel.getWeather()
             }
-            recyclerWeather.adapter = WeatherRecyclerAdapter()
+            recyclerWeather.run {
+                adapter = WeatherRecyclerAdapter()
+                addItemDecoration(SimpleDividerItemDecoration(this@MainActivity))
+            }
         }
     }
 }
