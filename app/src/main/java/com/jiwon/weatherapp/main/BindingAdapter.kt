@@ -9,7 +9,8 @@ import com.jiwon.weatherapp.model.WeatherResultModel
 @BindingAdapter("isLoading", "item")
 fun setWeatherItem(recyclerView: RecyclerView, isLoading: Boolean, item: List<WeatherResultModel.Result>?) {
     if (!isLoading && item != null) {
-        (recyclerView.adapter as? WeatherRecyclerAdapter)?.setItems(item)
+        val sortedItem = item.sortedBy { t -> t.title }
+        (recyclerView.adapter as? WeatherRecyclerAdapter)?.setItems(sortedItem)
     }
 }
 
